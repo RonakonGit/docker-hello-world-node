@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-demo-app
+  labels:
+    app: harness-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: harness-demo-app
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: harness-demo-app
+    spec:
+      containers:
+      - name: harness-demo-app
+        image: "ronakpatildocker/dockerhub:test"
+        securityContext:
+          runAsUser: 0  
+          allowPrivilegeEscalation: true
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
+        env:
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "86Mi"
+            cpu: "120"
