@@ -1,7 +1,7 @@
 const express = require('express')
 
 const app = express();
-const world = process.env.WORLD || 'World';
+const world = process.env.WORLD || 'Harness';
 
 app.set('port', (process.env.PORT || 8000));
 
