@@ -1,8 +1,7 @@
 FROM node:10-slim
 
 ENV \
-  PORT=8000 \
-  WORLD=World
+  PORT=8000
 
 WORKDIR /app
 
